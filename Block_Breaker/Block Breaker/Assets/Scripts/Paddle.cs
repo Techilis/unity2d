@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ public class Paddle : MonoBehaviour
     [SerializeField] float minX = 1f;
     [SerializeField] float maxX = 15f;
     [SerializeField] float screenWidthInUnits = 16f;
+    [SerializeField] Ball ball1;
+    bool toggleCheat = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +31,32 @@ public class Paddle : MonoBehaviour
         paddlePos.x = Mathf.Clamp(mousePosInUnits, minX, maxX);
         // To ask paddle to go to that position
         transform.position = paddlePos;
+
+        ToggleCheatOnClick();
+        if (toggleCheat)
+        {
+            LockPaddleToBall();
+        }
+    }
+
+    private void ToggleCheatOnClick()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (toggleCheat == false)
+            {
+                toggleCheat = true;
+            }
+            else
+            {
+                toggleCheat = false;
+            }
+        }
+    }
+
+    private void LockPaddleToBall()
+    {
+        Vector2 ballPos = new Vector2(ball1.transform.position.x, transform.position.y);
+        transform.position = ballPos;
     }
 }

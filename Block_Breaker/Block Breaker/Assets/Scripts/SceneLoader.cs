@@ -10,15 +10,20 @@ public class SceneLoader : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
+        Debug.Log("LoadNextScene from SceneLoader");
     }
 
     public void LoadStartScene()
     {
         SceneManager.LoadScene(0);
+        FindObjectOfType<GameStatus>().RestartGame();
+        Debug.Log("LoadStartScene from SceneLoader");
     }
 
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
 }

@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
     }
 
     [SerializeField] int breakableBlocks; //Just for debugging purposes
-    public void CountBreakableBlocks()
+    public void CountBlocks()
     {
         breakableBlocks++;
     }
@@ -24,6 +24,7 @@ public class Level : MonoBehaviour
         if (breakableBlocks <= 0)
         {
             sceneloader.LoadNextScene();
+            Debug.Log("LoadNextScene from Level.cs");
         }
     }
 

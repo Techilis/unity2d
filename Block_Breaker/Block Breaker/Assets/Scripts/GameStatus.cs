@@ -12,9 +12,26 @@ public class GameStatus : MonoBehaviour
     // State Variables
     [SerializeField] int currentScore = 0;
 
+    private void Awake()
+    {
+        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
+        if (gameStatusCount > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            // Default function
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
         scoreText.text = currentScore.ToString();
+        Debug.Log("Start in GameStatus.cs");
+        Debug.Log(currentScore.ToString());
     }
 
     // Update is called once per frame
@@ -28,6 +45,11 @@ public class GameStatus : MonoBehaviour
     {
         currentScore += pointsPerBlockDestroyed;
         scoreText.text = currentScore.ToString();
+    }
+
+    public void RestartGame()
+    {
+        Destroy(gameObject);
     }
 
 

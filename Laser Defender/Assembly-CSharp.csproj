@@ -63,8 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EnemyPathing.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\shredder.cs" />
+    <Compile Include="Assets\Scripts\WaveConfig.cs" />
     <None Include="Assets\Kenny\license.txt" />
     <None Include="Assets\Kenny\Spritesheet\sheet.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">

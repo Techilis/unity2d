@@ -7,8 +7,7 @@ public class EnemyPathing : MonoBehaviour
     // Config Params
     // Looking for Transform to get position, don't need to get waypoint
     List<Transform> waypoints;
-    [SerializeField] float moveSpeed = 2f;
-    [SerializeField] WaveConfig waveConfig;
+    WaveConfig waveConfig;
     int waypointIndex = 0;
 
     // Start is called before the first frame update
@@ -22,10 +21,21 @@ public class EnemyPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+    }
+
+    public void SetWaveConfig(WaveConfig waveConfig)
+    {
+        // this.waveConfig is refering to line 10 to = waveConfig received
+        this.waveConfig = waveConfig;
+    }
+
+    private void Move()
+    {
         if (waypointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
-            var movementThisFrame = moveSpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
             if (transform.position == targetPosition)
             {

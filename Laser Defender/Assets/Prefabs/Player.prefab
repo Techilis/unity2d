@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6650785913690383973}
   - component: {fileID: 6650785913690383970}
   - component: {fileID: 6650785913690383971}
+  - component: {fileID: 58204203199609078}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -94,5 +95,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   padding: 0.5
-  laserPrefab: {fileID: 0}
+  health: 200
+  deathSFX: {fileID: 8300000, guid: 1d9206064bcf37c4282c30c19015c62a, type: 3}
+  deathSFXVolume: 0.7
+  shootSFX: {fileID: 8300000, guid: 131bf41ad038be6449625412162d47d6, type: 3}
+  shootSFXVolume: 0.42
+  laserPrefab: {fileID: 475263835952603343, guid: 0ed675e5b36c81447a3f5d92e228a696,
+    type: 3}
   projectileSpeed: 20
+  ProjectileFiringPeriod: 0.1
+--- !u!58 &58204203199609078
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650785913690383968}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.35

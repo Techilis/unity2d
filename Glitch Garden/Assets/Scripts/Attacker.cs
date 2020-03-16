@@ -9,6 +9,20 @@ public class Attacker : MonoBehaviour
     // Start is called before the first frame update
     GameObject currentTarget;
 
+    private void Awake()
+    {
+        FindObjectOfType<LevelController>().AttackerSpawn();
+    }
+
+    private void OnDestroy()
+    {
+        LevelController levelController = FindObjectOfType<LevelController>();
+        if (levelController != null)
+        {
+            levelController.AttackerKilled();
+        }
+    }
+
     void Start()
     {
         

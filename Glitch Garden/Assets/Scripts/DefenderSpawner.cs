@@ -45,6 +45,10 @@ public class DefenderSpawner : MonoBehaviour
 
     private void SpawnDefender(Vector2 pos)
     {
-        Defender newDefender = Instantiate(defender, pos, Quaternion.identity) as Defender;
+        try
+        {
+            Defender newDefender = Instantiate(defender, pos, Quaternion.identity) as Defender;
+        }
+        catch { }
     }
 }
